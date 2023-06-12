@@ -1,11 +1,49 @@
-
+*{
+  box-sizing: border-box;
+}
 
 body{
-    margin: 0;
-    padding: 0;
-  color: white; 
-  height: 100vh;
-  width: 100%;
+  color: #F1C376; 
+  width: 100vb;
   background-size: cover;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.temp {
+  position: relative;
+  left: 100px;
+  bottom: 100px;
+}
+
+.temp_des {
+  position: relative;
+  left: 100px;
+  bottom: 100px;
+}
+
+.weather_container {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 3px;
+  line-height: 15px;
+}
+
+
+.verse_container {
+  font-family: 'Merriweather', serif;
+  letter-spacing: 3px;
+  position: relative;
+  left: 30%;
+  background-color: black;
+  opacity: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: white;
+}
+
+.container {
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
 }
 

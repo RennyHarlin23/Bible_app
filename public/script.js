@@ -1,8 +1,16 @@
-const random = Math.floor(Math.random() * 4) + 1;
-console.log(random);
+let preload = ['/assets/img1.jpg', '/assets/img2.jpg', '/assets/img3.jpg', '/assets/img4.jpg', '/assets/img5.jpg', '/assets/img6.jpg', '/assets/img7.jpg'];
+
+var images = [];
+for (i = 0; i < preload.length; i++) {
+    images[i] = new Image();
+    images[i].src = preload[i];
+}
+
+
+const random = Math.floor(Math.random() * 7) + 1;
 const body = document.querySelector('body');
 const body_url = "/assets/img" + random + ".jpg";
-body.style.backgroundImage = "url(body_url)";
+body.style.backgroundImage = `url(${body_url})`;
 
 
 if ('geolocation' in navigator) {
@@ -33,15 +41,39 @@ if ('geolocation' in navigator) {
         const temp_p = document.createElement('h2');
         const temp_des = document.createElement('h2');
         const div = document.createElement('div');
+        div.classList.add("weather_container");
+        const weather = document.querySelector('.weather');
 
         Weather_icon.setAttribute('src', img_url);
+        Weather_icon.classList.add("weather_img");
         temp_p.textContent = `${temp}°`;
+        temp_p.classList.add("temp");
         temp_des.textContent = description;
+        temp_des.classList.add("temp_des");
 
-        div.append(temp_p);
         div.append(Weather_icon);
+        div.append(temp_p);
         div.append(temp_des);
-        document.body.append(div);
+        weather.append(div);
+
+        const verse = await fetch('/bible');
+        const verse_res = await verse.json();
+        const verse_name = verse_res.verse;
+        const passage = verse_res.passage;
+
+        const verse_container = document.createElement('div');
+        const verse_p = document.createElement('h1');
+        const verse_pass = document.createElement('h2');
+        const container = document.querySelector(".container");
+
+        verse_p.textContent = verse_name;
+        verse_pass.innerHTML = passage;
+        verse_container.classList.add("verse_container");
+
+        verse_container.append(verse_p);
+        verse_container.append(verse_pass);
+        container.append(verse_container);
+
     })
 
 } else {
