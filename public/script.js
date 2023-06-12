@@ -1,12 +1,3 @@
-let preload = ['/assets/img1.jpg', '/assets/img2.jpg', '/assets/img3.jpg', '/assets/img4.jpg', '/assets/img5.jpg', '/assets/img6.jpg', '/assets/img7.jpg'];
-
-var images = [];
-for (i = 0; i < preload.length; i++) {
-    images[i] = new Image();
-    images[i].src = preload[i];
-}
-
-
 const random = Math.floor(Math.random() * 7) + 1;
 const body = document.querySelector('body');
 const body_url = "/assets/img" + random + ".jpg";
